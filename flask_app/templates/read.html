@@ -10,8 +10,38 @@
     </head>
     <body class="bg-dark">
 
-        <div class="container col-12 my-5 py-4 px-4 bg-dark text-white">
-            <table class="col-12 table-dark table-striped table-hover text-center">
+        <nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3 fixed-top">
+            <div class="container">
+              <span class="navbar-brand">Modularized CRUD</span>
+      
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item lead">
+                    <a href= "/" class="nav-link">Add a new user</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div class="section bg-dark">
+            <div class="container p-5"></div>
+
+        </div>
+
+        <div class="container my-5 py-4 px-4 bg-dark">
+
+            <h1 class="text-center text-white">Users</h1>
+            <table class="text-dark col-12 table-striped table-hover text-center bg-white">
                 <thead>
                     <tr>
                         <th class="col-auto px-5"><span class="fs-3">ID</span></th>
@@ -22,7 +52,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="text-dark">
 
                     {% for user in users %}
                         <tr>
@@ -43,9 +73,16 @@
 
             </table>
 
-            <div class="d-flex row my-5 text-center"><a class="fs-4" href="/">Add a new user</a></div>
+            
 
         </div>
+
+        
+
+        <footer class="col-12 position-fixed bottom-0 px-2 bg-dark text-white text-center">
+              <p> Coding Dojo Bootcamp Core Assignment</p>
+        </footer>
+
     </body>
 </html>
 

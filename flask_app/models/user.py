@@ -1,5 +1,9 @@
 # import the function that will return an instance of a connection
 from flask_app.config.mysqlconnection import connectToMySQL
+import re
+from flask import flash
+
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 # model the class after the friend table from our database
 class User:
     def __init__( self , data ):
@@ -10,6 +14,23 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 # Now we use class methods to query our database
+    @staticmethod
+    def validate_info(data):
+        result = True
+        query = "SELECT * FROM users WHERE email = %(email)s ;"
+        if not len(data['first_name']) >= 3:
+            result= False
+            flash("The first name must be at least three characters long")
+        if not len(data['last_name']) >=3:
+            result = False
+            flash("The last name must be at least three characters long")
+        if not EMAIL_REGEX.match(data['email']): 
+            flash("Invalid email address!")
+            result = False
+        if len(connectToMySQL('users').query_db(query,data)) >0:
+            result=False
+            flash("This email is already registered in our database")
+        return result
     @classmethod
     def get_all(cls):
         query = "SELECT * FROM users;"

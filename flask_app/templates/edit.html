@@ -9,11 +9,40 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     </head>
-    <body class="d-flex">
+    <body class="bg-dark text-white">
+
+        <nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3 fixed-top">
+            <div class="container">
+              <span class="navbar-brand">Modularized CRUD</span>
+      
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item lead">
+                    <a href= "/users" class="nav-link">Home</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div class="section bg-dark">
+            <div class="container p-5"></div>
+
+        </div>
+
         <div class="col-4"></div>
         <div class="container col-4 my-5 py-4 px-4 ml-5">
-            <div>
-                <span class="h1 mb-3">Edit User {{user['id']}}</span>
+            <div class="mb-3">
+                <span class="h1">Edit User {{user['id']}}</span>
                 
             </div>
             <form action="/update" method="POST" class="p-4 bg-primary text-white">
@@ -42,7 +71,11 @@
             
         </div>
 
-        <span class="col-4 my-5 py-4 fs-2 mr-5 d-flex row"><a href= "/users" class="text-center justify-content-center">Home</a></span>
+        <section class="section p-2 bg-dark text-light"></section>
+
+        <footer class="py-0 my-0 px-2 bg-dark text-white text-center">
+            <p> Coding Dojo Bootcamp Core Assignment</p>
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     </body>

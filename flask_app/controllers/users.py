@@ -18,6 +18,8 @@ def create_user():
         "last_name" : request.form["lname"],
         "email" : request.form["email"]
     }
+    if not User.validate_info(data):
+        return redirect("/")
     # We pass the data dictionary into the save method from the User class.
     User.save(data)
     # Don't forget to redirect after saving to the database.

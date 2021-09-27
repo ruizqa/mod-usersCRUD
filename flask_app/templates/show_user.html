@@ -10,46 +10,64 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
     <body class="container d-flex row justify-content-center align-items-top my-3 mx-3 bg-dark text-white">
-        
 
-        <div class="col-9">
-            <div class="col-12 fs-2 my-3 mx-3">User {{user['id']}}</div>
-            <div class="col-9 border border-white px-3 py-4">
-                <div class="fs-4">
-                    Full Name: {{ user['first_name'] +" "+ user['last_name'] }}
-                </div>
-                <div class="fs-4">
-                    Email: {{ user['email'] }}
-                </div>
-                <div class="fs-4">
-                    Created On: {{ user['created_at'] }}
-                </div>
-                <div class="fs-4">
-                    Last Updated On: {{ user['updated_at'] }}
-                </div>
-
+        <nav class="navbar navbar-expand-lg bg-primary navbar-dark py-3 fixed-top">
+            <div class="container">
+              <span class="navbar-brand">Modularized CRUD</span>
+      
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item lead">
+                    <a href= "/users" class="nav-link">Home</a>
+                  </li>
+                </ul>
+              </div>
             </div>
+        </nav>
 
-            <div class='col-9 my-5 px-3'>
-                <div class="fs-4 col">
-                    <a href="/users/{{user['id']}}/edit">Edit</a>
-                    <a href="/users/{{user['id']}}/destroy">Delete</a>
-                </div>
-            </div>
+        <div class="section bg-dark">
+            <div class="container p-5"></div>
 
         </div>
 
-        <div class="col-2 my-4 mx-2">
-            <div class="fs-4">
-                <a href="/">Home</a>
-            </div>
+        <div class="container">
+            <div class="col-lg-8 offset-lg-4 offset-md-2 border border-white py-3 px-4 mt-5 bg-light text-dark lead">
+                <h1 class="text-primary">User {{user['id']}}</h1>
+                <div class="fs-4">
+                    <span class="fw-bold">Full Name</span>: {{ user['first_name'] +" "+ user['last_name'] }}
+                </div>
+                <div class="fs-4">
+                    <span class="fw-bold">Email</span>: {{ user['email'] }}
+                </div>
+                <div class="fs-4">
+                    <span class="fw-bold">Created On</span>: {{ user['created_at'] }}
+                </div>
+                <div class="fs-4">
+                    <span class="fw-bold">Last Updated On</span>: {{ user['updated_at'] }}
+                </div>
+                <div class="fs-4 col my-2">
+                    <a class="fw-bold" href="/users/{{user['id']}}/edit">Edit</a>
+                    <a class="fw-bold" href="/users/{{user['id']}}/destroy">Delete</a>
+                </div>
+
 
         </div>
 
         
-
         
 
+        <footer class="col-12 position-fixed bottom-0 px-2 bg-dark text-white text-center">
+              <p> Coding Dojo Bootcamp Core Assignment</p>
+        </footer>
 
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>  
