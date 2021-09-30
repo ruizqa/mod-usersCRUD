@@ -46,7 +46,11 @@ class User:
     def get_user_info(cls,data):
         query = "SELECT * FROM users WHERE id = %(id)s;"
         # make sure to call the connectToMySQL function with the schema you are targeting.
-        user = connectToMySQL('users').query_db(query,data)
+        result = connectToMySQL('users').query_db(query,data)
+        if len(result)<1:
+            return False
+        else:
+            user= cls(result[0])
         return user
     @classmethod
     def save(cls, data ):
